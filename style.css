@@ -1,0 +1,227 @@
+/* Importing Google Fonts - Montserrat */
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Montserrat", sans-serif;
+}
+
+body {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  background: #000000; /* Dark background for modern look */
+  color: #ffffff; /* Set default text color to white */
+}
+
+.container {
+  flex-grow: 1;
+  overflow: hidden;
+  max-width: 425px;
+  border-radius: 15px; /* Smoother, more modern rounding */
+  position: relative;
+  background: #2c3e50; /* Sleek dark blue background */
+  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2); /* Enhance shadow for depth */
+}
+
+.search-section {
+  display: flex;
+  gap: 10px;
+  padding: 25px;
+  align-items: center;
+}
+
+.search-section .input-wrapper {
+  height: 54px;
+  width: 100%;
+  position: relative;
+}
+
+.search-section .input-wrapper span {
+  position: absolute;
+  top: 50%;
+  left: 17px;
+  pointer-events: none;
+  transform: translateY(-50%);
+  color: #ffffff; /* Icon color to white */
+}
+
+.search-section .search-input {
+  height: 100%;
+  width: 100%;
+  outline: none;
+  font-size: 1rem;
+  font-weight: 500;
+  border-radius: 8px; /* Slightly larger rounding */
+  text-transform: uppercase;
+  padding: 0 20px 0 50px;
+  border: 2px solid #34495e; /* Stronger border color */
+  background: #34495e; /* Dark background for input */
+  color: #ffffff; /* White text inside input */
+  transition: 0.3s ease; /* Smooth transition */
+}
+
+.search-section .search-input:focus {
+  border-color: #000000; /* Teal accent for focus */
+  box-shadow: 0 0 10px rgba(219, 188, 17, 0.837); /* Glow effect */
+}
+
+.search-section .search-input::placeholder {
+  text-transform: none;
+  color: #ecf0f1; /* Lighter placeholder text */
+}
+
+.search-section .location-button {
+  height: 54px;
+  width: 56px;
+  cursor: pointer;
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 8px; /* Larger border radius */
+  background: #ffffff; /* Bright teal background */
+  color: #000000; /* White icon inside button */
+  border: 2px solid #b4ae13ec;
+  transition: 0.3s ease;
+}
+
+.search-section .location-button:hover {
+    color: #fff;
+  background: #000000; /* Darker teal on hover */
+}
+
+.search-section .location-button span {
+  font-size: 1.5rem; /* Larger icon size */
+}
+
+.no-results {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  width: 100%;
+  display: none;
+  padding: 40px;
+  text-align: center;
+  align-items: center;
+  flex-direction: column;
+  transform: translate(-50%, -50%);
+  transition: 0.2s ease;
+}
+
+body.show-no-results .no-results {
+  display: flex;
+}
+
+.no-results .title {
+  font-weight: 700;
+  margin: 25px 0 15px;
+}
+
+.no-results .message {
+  font-weight: 500;
+  line-height: 23px;
+}
+
+body.show-no-results .weather-section {
+  visibility: hidden;
+}
+
+.weather-section .current-weather {
+  display: flex;
+  padding: 20px 0 50px;
+  flex-direction: column;
+  align-items: center;
+}
+
+.current-weather .weather-icon {
+  width: 120px; /* Adjust size for a clean look */
+  aspect-ratio: 1;
+}
+
+.current-weather .temperature {
+  font-size: 4rem; /* Larger temperature display */
+  margin: 23px 0;
+  display: flex;
+  color: #f39c12; /* Bright color for temperature */
+}
+
+.current-weather .temperature span {
+  font-size: 1.8rem; /* Larger degree symbol */
+  font-weight: 500;
+  margin: 5px 0 0 2px;
+}
+
+.current-weather .description {
+  font-weight: 500;
+  font-size: 1.5rem; /* Larger description text */
+  color: #bdc3c7; /* Softer text color */
+}
+
+.current-weather .city-name {
+    font-size: 1.25rem; /* Set size for the city name */
+    font-weight: 600;   /* Make it slightly bold */
+    color: #ecf0f1;     /* Light color */
+    margin-top: 10px;   /* Add space above the city name */
+  }
+  
+
+.hourly-weather {
+  padding: 16px 25px;
+  border-top: 1px solid #bdc3c7; /* Light border for separation */
+}
+
+.hourly-weather .weather-list {
+  display: flex;
+  gap: 30px;
+  overflow-x: auto;
+  padding-bottom: 16px;
+  margin-bottom: -16px;
+  scrollbar-width: thin;
+  scrollbar-color: #34495e transparent; /* Custom scrollbar colors */
+}
+
+.hourly-weather:hover .weather-list {
+  scrollbar-color: #ffffff transparent; /* Change scrollbar color on hover */
+}
+
+.hourly-weather .weather-list .weather-item {
+  display: flex;
+  gap: 7px;
+  width: 60px;
+  font-weight: 500;
+  flex-direction: column;
+  align-items: center;
+  color: #ffffff; /* White text for time and temperature */
+}
+
+.hourly-weather .weather-item .weather-icon {
+  width: 30px; /* Slightly larger icons */
+  aspect-ratio: 1;
+}
+
+/* Responsive media query code for small screen */
+@media (max-width: 624px) {
+  body {
+    padding: 15px;
+  }
+
+  .search-section {
+    padding: 20px;
+  }
+
+  .no-results {
+    padding: 30px;
+  }
+
+  .hourly-weather {
+    padding: 16px 20px;
+  }
+
+  .hourly-weather .weather-list {
+    gap: 25px;
+  }
+}
